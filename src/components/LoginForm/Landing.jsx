@@ -1,11 +1,30 @@
 import React from 'react';
 import './Landing.css';
-import { Brain, Cpu, Zap, HeartPulseIcon} from 'lucide-react';
-import landingImage from '../Assets/landing.png'
+
+import { useEffect, useState } from 'react';
+import { Brain,  HeartPulseIcon, DumbbellIcon} from 'lucide-react';
 import  endoImage from '../Assets/endrophin.jpg'
 
 
 const EndorphinEndorsers = () => {
+    const [endoImagee, setEndoImage] = useState(''); // State to hold the image URL
+    const accessKey = 'bNkvpdzjnjuTE0sj6eMWszBiT63XUu31tnTpQA0VSJI'; 
+    const query = 'motivation quotes';  
+    const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&client_id=${accessKey}`;
+  
+    // Fetch new image when component loads
+    useEffect(() => {
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const randomImage = data.results[Math.floor(Math.random() * data.results.length)];
+          setEndoImage(randomImage.urls.regular); // Set new image URL
+        })
+        .catch(error => {
+          console.error('Error fetching motivational photos:', error);
+        });
+    }, []); 
+
   return (
     <div className="app-container">
       <header>
@@ -42,13 +61,16 @@ const EndorphinEndorsers = () => {
           </button>
         </div>
         <div className="image-container">
-          <img src={landingImage} alt="AI Fitness Illustration" className="main-image" />
+          <img src={endoImagee} alt="AI Fitness Illustration" className="main-image" />
           <Brain className="icon brain" />
-          <Cpu className="icon cpu" />
-          <Zap className="icon zap" />
+          {/* <Cpu className="icon cpu" /> */}
+        
           {/* <Network className="icon network" /> */}
           {/* <BarChart className="icon chart" /> */}
           <HeartPulseIcon className =" icon heart"/>
+          <DumbbellIcon className =" icon dumbbell"/>
+          
+          
         </div>
       </main>
     </div>
