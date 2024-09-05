@@ -11,6 +11,8 @@ import {
   X,
 } from 'lucide-react';
 import Navbar from '../Navbar'; 
+import { Spinner } from '../Spinner';
+
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -32,31 +34,21 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 const exercisePlan = [
   {
-    day: 1,
     exercises: [
-      { name: "Push-ups", sets: 3, reps: 15 },
-      { name: "Squats", sets: 3, reps: 20 },
-      { name: "Plank", sets: 3, duration: "30 seconds" },
-      { name: "Mountain Climbers", sets: 3, reps: 20 },
-      { name: "Lunges", sets: 3, reps: 10 },
+      { name: "Squats", sets: 1, reps: 20 },
+      { name: "Pushups", sets: 1, reps: 20 },
+      { name: "Plank", sets: 1, duration: "30 seconds" },
+      { name: "Mountain Climbers", sets: 1, reps: 20 },
+      { name: "Lunges", sets: 1, reps: 20 },
     ]
   },
-  {
-    day: 2,
-    exercises: [
-      { name: "Incline Push-ups", sets: 3, reps: 12 },
-      { name: "Crunches", sets: 3, reps: 20 },
-      { name: "Dips", sets: 3, reps: 10 },
-      { name: "Jump Squats", sets: 3, reps: 15 },
-      { name: "Burpees", sets: 3, reps: 10 },
-    ]
-  }
 ];
 
 export default function FitnessHomepage() {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
-  const [workoutPlan, setWorkoutPlan] = useState(null); // State for today's workout plan
+  const [workoutPlan, setWorkoutPlan] = useState(null); 
+  const [loading, setLoading] = useState(false);
 
   const handleDayClick = (day) => {
     const isSelected = selectedDays.some(selectedDay => 
@@ -87,6 +79,14 @@ export default function FitnessHomepage() {
       setWorkoutPlan(null);
       alert("No workout plan available for today.");
     }
+  };
+
+  const handleStartWorkout = () => {
+    setLoading(true); 
+    setTimeout(() => {
+      setLoading(false); 
+      window.open('https://www.google.com', '_blank'); 
+    }, 3000);
   };
 
   return (
@@ -160,26 +160,30 @@ export default function FitnessHomepage() {
             </div>
             
             {workoutPlan && (
-              <div className="m-4 p-4 bg-gray-700 rounded-lg w-1/2">
-                <h2 className="text-2xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
+              <div className='flex justify-center'>
+                <div className="w-1/2 bg-gray-700 rounded-lg p-6">
+                <h2 className="text-3xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
                 <ul className="space-y-2">
                   {workoutPlan.exercises.map((exercise, index) => (
-                    <li key={index} className="flex justify-between text-lg text-gray-300">
+                    <li key={index} className="flex justify-between text-2xl text-gray-300 p-4 py-8 hover:text-themeRed rounded">
                       <span>{exercise.name}</span>
                       <span>{exercise.sets} sets, {exercise.reps} reps</span>
                     </li>
                   ))}
                 </ul>
-                <div className='my-4'>
-                <a 
-                className="bg-themeRed text-white py-2 px-4 rounded-lg text-xl"
-                href='https://www.google.com/'
-                target='_blank'
-              >
-                Start Workout
-              </a>
+                <div className="my-4 flex justify-center">
+                  {loading ? (
+                    <Spinner size="md" variant="primary" />
+                  ) : (
+                    <button 
+                      onClick={handleStartWorkout}
+                      className="bg-themeRed text-white p-4 rounded-lg text-3xl "
+                    >
+                      Start 
+                    </button>
+                  )}
+                </div>
               </div>
-
               </div>
             )}
           </div>
