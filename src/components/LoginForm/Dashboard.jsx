@@ -8,12 +8,10 @@ import {
   Dumbbell,
   Utensils,
   Moon,
-  X
+  X,
 } from 'lucide-react';
 import Navbar from '../Navbar'; 
-import { EndorphinIcon } from '../Icons/EndorphinIcon';
 
-// Simple Modal component
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -57,8 +55,8 @@ const exercisePlan = [
 
 export default function FitnessHomepage() {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [isExercisePlanOpen, setIsExercisePlanOpen] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
+  const [workoutPlan, setWorkoutPlan] = useState(null); // State for today's workout plan
 
   const handleDayClick = (day) => {
     const isSelected = selectedDays.some(selectedDay => 
@@ -75,6 +73,19 @@ export default function FitnessHomepage() {
       ));
     } else {
       setSelectedDays([...selectedDays, day]);
+    }
+  };
+
+  const generateWorkout = () => {
+    const today = new Date();
+    const dayOfMonth = today.getDate(); 
+    const plan = exercisePlan[0]
+
+    if (plan) {
+      setWorkoutPlan(plan);
+    } else {
+      setWorkoutPlan(null);
+      alert("No workout plan available for today.");
     }
   };
 
@@ -102,20 +113,19 @@ export default function FitnessHomepage() {
             <div className="grid grid-cols-3 p-4 gap-6">
               <div 
                 className="bg-gray-700 rounded-lg p-6 cursor-pointer hover:bg-gray-600 transition-colors"
-                onClick={() => setIsExercisePlanOpen(true)}
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-4xl font-bold text-gray-200">10</p>
+                    <p className="text-4xl font-bold text-gray-200">10 Days</p>
                     <p className="text-lg text-gray-200">Exercises</p>
-                    <p className="text-sm text-gray-200">1 hour 50 minutes</p>
+                    <p className="text-sm text-gray-200">5 hour 50 minutes</p>
                   </div>
                   <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center text-themeRed font-bold">
                     <Dumbbell className="w-10 h-10" />
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-700 rounded-lg p-6">
+              <div className="bg-gray-700 rounded-lg p-6 hover:bg-gray-600 ">
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="text-4xl font-bold text-gray-200">6</p>
@@ -127,11 +137,11 @@ export default function FitnessHomepage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-700 rounded-lg p-6">
+              <div className="bg-gray-700 rounded-lg p-6 hover:bg-gray-600 ">
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="text-4xl font-bold text-gray-200">7h 40m</p>
-                    <p className="text-lg text-gray-200">Sleep</p>
+                    <p className="text-lg text-gray-200">Average Sleep</p>
                     <p className="text-sm text-gray-200">Perfect Quality</p>
                   </div>
                   <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center text-themeRed font-bold">
@@ -140,31 +150,48 @@ export default function FitnessHomepage() {
                 </div>
               </div>
             </div>
+            <div className="p-4 rounded-lg">
+              <button 
+                onClick={generateWorkout}
+                className="bg-themeRed text-white py-2 px-4 rounded-lg text-xl"
+              >
+                Generate Today's Workout
+              </button>
+            </div>
+            
+            {workoutPlan && (
+              <div className="m-4 p-4 bg-gray-700 rounded-lg w-1/2">
+                <h2 className="text-2xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
+                <ul className="space-y-2">
+                  {workoutPlan.exercises.map((exercise, index) => (
+                    <li key={index} className="flex justify-between text-lg text-gray-300">
+                      <span>{exercise.name}</span>
+                      <span>{exercise.sets} sets, {exercise.reps} reps</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className='my-4'>
+                <a 
+                className="bg-themeRed text-white py-2 px-4 rounded-lg text-xl"
+                href='https://www.google.com/'
+                target='_blank'
+              >
+                Start Workout
+              </a>
+              </div>
+
+              </div>
+            )}
           </div>
         </main>
       </div>
 
-      {/* Modals */}
       <Modal isOpen={isCalendarOpen} onClose={() => setIsCalendarOpen(false)}>
         <DayPicker 
           mode="multiple" 
           selected={selectedDays}
           onDayClick={handleDayClick}
         />
-      </Modal>
-
-      <Modal isOpen={isExercisePlanOpen} onClose={() => setIsExercisePlanOpen(false)}>
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-200 mb-4">Day 2 - Exercises</h2>
-          <ul className="space-y-2">
-            {exercisePlan[1].exercises.map((exercise, index) => (
-              <li key={index} className="flex justify-between text-lg text-gray-300">
-                <span>{exercise.name}</span>
-                <span>{exercise.sets} sets, {exercise.reps} reps</span>
-              </li>
-            ))}
-          </ul>
-        </div>
       </Modal>
     </div>
   );
