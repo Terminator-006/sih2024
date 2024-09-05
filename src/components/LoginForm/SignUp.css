@@ -1,0 +1,138 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+h2 {
+    font-family: "Montserrat", system-ui;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.first-half {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    width: 50%;
+    height: 100%;
+    background: url('https://cloud.appwrite.io/console/_app/immutable/assets/login-dark-mode.CXyYQeDN.png') no-repeat center center;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    background-color: black;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+   
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 16px; /* Space between input fields */
+    margin-bottom: 16px;
+}
+
+.input-box {
+    flex: 1; /* Allow input fields to grow equally */
+}
+
+.input-box input, 
+.input-box select {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-box select option {
+    background-color: black; /* Background color for dropdown options */
+    color: white; /* Text color for dropdown options */
+}
+
+.input-box input:focus,
+.input-box select:focus {
+    border-color: rgba(247, 69, 96, 0.8);
+    box-shadow: 0 0 8px rgba(247, 69, 96, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(247, 69, 96, 1);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: rgba(247, 69, 96, 0.9);
+}
+
+/* .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+}
+
+.footer a {
+    text-decoration: none;
+    color: grey;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.footer a:hover {
+    transform: translateY(-4px);
+    color: white;
+} */
+
+.user-exists{
+    margin-top:24px;
+
+}
+.user-exists a{
+   text-decoration: none;
+   margin-left:4px;
+   color:grey;
+   transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.user-exists a:hover{
+    transform: translateY(-4px);
+    color: blue;
+}

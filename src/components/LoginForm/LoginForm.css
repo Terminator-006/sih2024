@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container{
+    display:flex;
+    flex-direction:row;
+    height:100vh;
+    width:100vw;
+}
+h2{
+    font-family: "Montserrat", system-ui;
+    font-weight:600;
+}
+
+.first-half {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    width: 50%;
+    height: 100%;
+    background: url('https://cloud.appwrite.io/console/_app/immutable/assets/login-dark-mode.CXyYQeDN.png') no-repeat center center;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif; /* Use 'Montserrat', sans-serif; for a sans-serif look */
+    text-align: center; /* Center align text if it's a quote */
+    padding: 20px; /* Add some padding for spacing around the quote */
+    font-size: 2rem; /* Adjust size for readability */
+    line-height: 1.5; /* Improve readability with proper line height */
+}
+
+form{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    width:50%;
+    height:100%;
+    background-color: black;
+}
+
+.wrapper{
+    display:flex;
+    align-items: flex-start;
+    flex-direction:column;
+    color:white;
+}
+
+.input-box{
+    margin-top:24px;
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+    margin-bottom:16px;
+   
+}
+.input-box input{
+    font-family:"Roboto", sans-serif;
+    font-weight:400;
+    width:360px;
+    height:32px;
+    padding: 12px; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    background-color: transparent; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for transparent look */
+    color: #fff; /* Adjust text color as needed */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button{
+    width:360px;
+    height:32px;
+    background-color:rgba(247,69,96,255);
+    color:white;
+    border:none;
+    outline:none;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 360px;
+    margin-top: 24px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+}
+
+.footer a {
+    text-decoration: none;
+    color: grey;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+    display: inline-block;
+}
+
+.footer a:hover {
+    transform: translateY(-4px); /* Moves the link upwards on hover */
+    
+}
+
+
