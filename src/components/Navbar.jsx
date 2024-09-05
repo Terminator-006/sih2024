@@ -1,12 +1,12 @@
 import React from 'react';
 import { Home, Flag, Calendar, Award, BarChart2, Settings, UserRound } from 'lucide-react';
 
-const Navbar = ({ onCalendarClick }) => {
+const Navbar = ({ onCalendarClick, onAchievementsClick}) => {
   const navItems = [
     { name: 'Home', icon: <Home className="w-6 h-6" />, active: true },
     { name: 'My goals', icon: <Flag className="w-6 h-6" />, active: false },
     { name: 'Schedule', icon: <Calendar className="w-6 h-6" />, active: false, onClick: onCalendarClick },
-    { name: 'Achievements', icon: <Award className="w-6 h-6" />, active: false },
+    { name: 'Achievements', icon: <Award className="w-6 h-6" />, active: false, onClick: onAchievementsClick },
     { name: 'Statistics', icon: <BarChart2 className="w-6 h-6" />, active: false },
     { name: 'Settings', icon: <Settings className="w-6 h-6" />, active: false },
   ];

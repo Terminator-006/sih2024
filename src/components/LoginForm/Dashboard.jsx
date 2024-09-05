@@ -12,6 +12,11 @@ import {
 } from 'lucide-react';
 import Navbar from '../Navbar'; 
 import { Spinner } from '../Spinner';
+import achievement1 from '../Assets/10days.png';
+import achievement2 from '../Assets/20days.png';
+import achievement3 from '../Assets/1month.png';
+
+import './Dashboard.css';
 
 
 const Modal = ({ isOpen, onClose, children }) => {
@@ -46,6 +51,8 @@ const exercisePlan = [
 
 export default function FitnessHomepage() {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
+
   const [selectedDays, setSelectedDays] = useState([]);
   const [workoutPlan, setWorkoutPlan] = useState(null); 
   const [loading, setLoading] = useState(false);
@@ -105,7 +112,10 @@ export default function FitnessHomepage() {
       </header>
 
       <div className="flex flex-1">
-        <Navbar className="w-64 bg-gray-800 text-gray-100" onCalendarClick={() => setIsCalendarOpen(true)} />
+        <Navbar className="w-64 bg-gray-800 text-gray-100" 
+          onCalendarClick={() => setIsCalendarOpen(true)} 
+          onAchievementsClick={() => setIsAchievementsOpen(true)}
+          />
 
         <main className="flex-1 bg-gray-800 p-4">
           <div className="flex-1">
@@ -197,6 +207,33 @@ export default function FitnessHomepage() {
           onDayClick={handleDayClick}
         />
       </Modal>
+      <Modal isOpen={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)}>
+  <div className='m-4'>
+    <h2 className="text-2xl font-semibold text-gray-200 mb-4">Achievements</h2>
+    <div className="m-8 grid grid-cols-3 gap-30">
+      <div className="rounded-image-container text-center">
+        <span className="block text-gray-200 font-semibold mb-2">10 Day Streak</span>
+        <div className="image-wrapper">
+          <img src={achievement1} alt="Achievement 1" className="rounded-image" />
+        </div>
+      </div>
+      <div className="rounded-image-container text-center">
+        <span className="block text-gray-200 font-semibold mb-2">Best Workout Routine</span>
+        <div className="image-wrapper">
+          <img src={achievement2} alt="Achievement 2" className="rounded-image" />
+        </div>
+      </div>
+      <div className="rounded-image-container text-center">
+        <span className="block text-gray-200 font-semibold mb-2">Perfect Attendance</span>
+        <div className="image-wrapper">
+          <img src={achievement3} alt="Achievement 3" className="rounded-image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</Modal>
+
+
     </div>
   );
 }
