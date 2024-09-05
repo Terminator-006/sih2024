@@ -1,11 +1,11 @@
 
 import './App.css';
-import LoginForm from './components/LoginForm/Dashboard';
+import Dashboard from './components/LoginForm/Dashboard';
 
 function App() {
   return (
     <div>
-      <LoginForm/>
+      <Dashboard/>
     </div>
   );
 }
