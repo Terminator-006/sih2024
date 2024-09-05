@@ -1,20 +1,34 @@
+@font-face{
+    font-family:'Victor';
+    src:url('../Assets/Victor Serif/VictorSerifTrial-45RegularItalic.otf');
+}
+
+
+
 :root {
-    --primary-red: #ff0000;
-    --secondary-red: #ff3333;
+    --primary-red: rgba(247, 69, 96, 1);
+    --secondary-red: rgba(247, 69, 96, 1);
     --primary-black: #000000;
     --secondary-black: #1a1a1a;
     --text-white: #ffffff;
-    --neon-red: #ff6b6b;
+    --neon-red: rgba(247, 69, 96, 1);
   }
+
   
   body {
     background-color: var(--primary-black);
     color: var(--text-white);
     font-family: 'Roboto', sans-serif;
+    user-select: none;
+  }
+
+  img{
+    pointer-events: none;
   }
   
   .app-container {
     width:100vw;
+    height:100vh;
     padding: 24px;
     background: linear-gradient(135deg, var(--secondary-black) 0%, var(--primary-black) 100%);
   }
@@ -33,7 +47,7 @@
     width: 70px;
     font-weight: bold;
     color: var(--primary-red);
-    text-shadow: 0 0 10px var(--neon-red);
+    /* text-shadow: 0 0 10px var(--neon-red); */
   }
 
   
@@ -70,7 +84,7 @@
   
   .sign-up {
     background-color: transparent;
-    color: var(--primary-red);
+    color: white;
     border: 2px solid var(--primary-red);
   }
   
@@ -81,7 +95,7 @@
   }
   
   .sign-in {
-    background-color: var(--primary-red);
+    /* background-color: var(--primary-red); */
     color: var(--text-white);
   }
   
@@ -98,12 +112,18 @@
   
   .content {
     width: 50%;
+
   }
+  
+
   
   h1 {
     font-size: 48px;
     margin-bottom: 20px;
     line-height: 1.2;
+    font-family:'Victor';
+    font-weight:400;
+
   }
   
   .title-main {
@@ -114,7 +134,7 @@
   .title-sub {
     color: var(--primary-red);
     display: block;
-    text-shadow: 0 0 10px var(--neon-red);
+    /* text-shadow: 0 0 10px var(--neon-red); */
   }
   
   p {
@@ -142,9 +162,7 @@
     box-shadow: 0 0 20px var(--neon-red);
   }
   
-  .arrow {
-    margin-left: 10px;
-  }
+ 
   
   .image-container {
     display:flex;
@@ -156,6 +174,7 @@
   
   .main-image {
     width:  60%;
+    height: 70vh;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
   }
@@ -165,7 +184,7 @@
     height: 40px;
     position: absolute;
     color: var(--primary-red);
-    filter: drop-shadow(0 0 5px var(--neon-red));
+    /* filter: drop-shadow(0 0 5px var(--neon-red)); */
   }
   
   .brain {
@@ -173,18 +192,16 @@
     left: 10%;
   }
   
-  .cpu {
-    top: 20%;
-    right: 10%;
-  }
   
-  .zap {
-    top: 40%;
-    left: 5%;
-  }
+  
 
   .heart{
     top:40%;
+    right:10%;
+  }
+
+  .dumbbell{
+    top:80%;
     left:10%;
   }
   
