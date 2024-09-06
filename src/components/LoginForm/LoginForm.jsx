@@ -24,22 +24,32 @@ const LoginForm = () => {
         <div className="flex flex-col items-start w-96">
           <h2 className="text-white text-2xl font-semibold mb-6">LOGIN</h2>
           <div className="w-full flex flex-col gap-6 mb-4">
-            <input type="email" placeholder="Email" required className="w-full p-3 bg-transparent border border-white/30 text-white focus:outline-none focus:border-red-500 focus:ring focus:ring-red-500 transition duration-300" />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              className="w-full p-3 bg-transparent border border-white/30 text-white focus:outline-none focus:ring-0 transition duration-300 hover:shadow-neon"
+            />
             <div className="relative w-full">
               <input
                 type={passwordVisible ? 'text' : 'password'}
                 id="password"
                 placeholder="Enter password"
-                className="w-full p-3 bg-transparent border border-white/30 text-white focus:outline-none focus:border-red-500 focus:ring focus:ring-red-500 transition duration-300"
+                className="w-full p-3 bg-transparent border border-white/30 text-white focus:outline-none focus:ring-0 transition duration-300 hover:shadow-neon"
               />
               <FontAwesomeIcon
                 icon={passwordVisible ? faEyeSlash : faEye}
-                className="absolute right-3 top-3 cursor-pointer text-white/70"
+                className="absolute right-3 top-4 cursor-pointer text-white/70"
                 onClick={togglePasswordVisibility}
               />
             </div>
           </div>
-          <a href='/dashboard' className="w-full p-3 bg-red-500 text-white hover:bg-red-600 transition duration-300">Sign in</a>
+          <a
+            href='/dashboard'
+            className="w-full flex justify-center items-center p-3 bg-red-500 text-white font-semibold hover:bg-red-600 transition duration-300"
+          >
+            Sign in
+          </a>
           <div className="flex justify-between items-center w-full mt-4 text-gray-400 text-sm">
             <a href="#" className="hover:text-white transition duration-300">Forgot Password?</a>
             <a href="/signup" className="hover:text-white transition duration-300">Sign up</a>
