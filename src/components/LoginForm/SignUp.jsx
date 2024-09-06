@@ -30,7 +30,7 @@ const SignUpForm = () => {
                 type="text"
                 placeholder="Full Name"
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               />
             </div>
             <div className="w-full">
@@ -38,7 +38,7 @@ const SignUpForm = () => {
                 type="email"
                 placeholder="Email"
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               />
             </div>
           </div>
@@ -49,7 +49,7 @@ const SignUpForm = () => {
                 type="tel"
                 placeholder="Phone Number"
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               />
             </div>
             <div className="w-full">
@@ -57,7 +57,7 @@ const SignUpForm = () => {
                 type="text"
                 placeholder="Country"
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               />
             </div>
           </div>
@@ -68,7 +68,7 @@ const SignUpForm = () => {
                 type="number"
                 placeholder="Age"
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               />
             </div>
             <div className="relative w-full">
@@ -76,7 +76,7 @@ const SignUpForm = () => {
                 type={passwordVisible ? 'text' : 'password'}
                 placeholder="Password"
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               />
               <FontAwesomeIcon
                 icon={passwordVisible ? faEyeSlash : faEye}
@@ -87,23 +87,23 @@ const SignUpForm = () => {
           </div>
 
           <div className="flex flex-row gap-4 w-full mb-4">
-            <div className="relative w-full">
-              <input
-                type={passwordVisible ? 'text' : 'password'}
-                placeholder="Confirm Password"
+            <div className="w-full">
+              <select
                 required
-                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
-              />
-              <FontAwesomeIcon
-                icon={passwordVisible ? faEyeSlash : faEye}
-                className="absolute right-3 top-3 text-gray-400 cursor-pointer"
-                onClick={togglePasswordVisibility}
-              />
+                className="w-full p-3 bg-black text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
+              >
+                <option value="" disabled selected hidden>
+                  Fitness Level
+                </option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
             </div>
             <div className="w-full">
               <select
                 required
-                className="w-full p-3 bg-black text-white border border-gray-300 focus:border-pink-500 focus:ring focus:ring-pink-300 rounded outline-none transition duration-300"
+                className="w-full p-3 bg-black text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
               >
                 <option value="" disabled selected hidden>
                   Gender
@@ -115,11 +115,32 @@ const SignUpForm = () => {
             </div>
           </div>
 
-          <a href='/dashboard'
-            className="w-full p-3 bg-pink-500 text-white hover:bg-pink-600 transition duration-300 rounded mt-5"
-          >
-            Sign up
-          </a>
+          <div className="flex flex-row gap-4 w-full mb-4">
+            <div className="w-full">
+              <input
+                type="text"
+                placeholder="Height (cm)"
+                required
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
+              />
+            </div>
+            <div className="w-full">
+              <input
+                type="text"
+                placeholder="Weight (kg)"
+                required
+                className="w-full p-3 bg-transparent text-white border border-gray-300 focus:border-[rgba(247,69,96,0.8)] focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] rounded outline-none transition duration-300"
+              />
+            </div>
+          </div>
+
+          <a
+           href="/dashboard"
+           className="w-full p-3 bg-[rgba(247,69,96,0.8)] text-white focus:outline-none focus:shadow-[0_0_8px_rgba(247,69,96,0.5)] transition duration-300 rounded mt-5 text-center"
+           >
+           Sign up
+         </a>
+
 
           <div className="mt-6 text-white">
             Already have an account?{' '}
