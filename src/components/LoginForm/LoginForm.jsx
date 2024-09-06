@@ -39,10 +39,10 @@ const LoginForm = () => {
               />
             </div>
           </div>
-          <button type="submit" className="w-full p-3 bg-red-500 text-white hover:bg-red-600 transition duration-300">Sign in</button>
+          <a href='/dashboard' className="w-full p-3 bg-red-500 text-white hover:bg-red-600 transition duration-300">Sign in</a>
           <div className="flex justify-between items-center w-full mt-4 text-gray-400 text-sm">
             <a href="#" className="hover:text-white transition duration-300">Forgot Password?</a>
-            <a href="#" className="hover:text-white transition duration-300">Sign up</a>
+            <a href="/signup" className="hover:text-white transition duration-300">Sign up</a>
           </div>
         </div>
       </form>

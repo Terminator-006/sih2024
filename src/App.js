@@ -13,8 +13,8 @@ function App() {
         <Route path="/" element={<Navigate to="/landing" />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landing" element={<EndorphinEndorsers />} />
-        {/* <Route path="/login" element={<LoginForm />} /> */}
-        {/* <Route path="/signup" element={<SignUp />} /> */}
+        <Route path="/login" element={<LoginForm />} /> 
+         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );

@@ -38,12 +38,12 @@ const EndorphinEndorsers = () => {
           </ul>
         </nav>
         <div className="flex space-x-4">
-          <button className="px-4 py-2 border border-red-500 text-white uppercase font-bold rounded transition duration-300 hover:bg-red-500 hover:shadow-lg">Sign up</button>
-          <button className="px-4 py-2 text-white uppercase font-bold rounded transition duration-300 hover:bg-red-500 hover:shadow-lg">Sign in</button>
+          <a href='/signup' className="px-4 py-2 border border-red-500 text-white uppercase font-bold rounded transition duration-300 hover:bg-red-500 hover:shadow-lg">Sign up</a>
+          <a href='/login' className="px-4 py-2 text-white uppercase font-bold rounded transition duration-300 hover:bg-red-500 hover:shadow-lg">Sign in</a>
         </div>
       </header>
-      <main className="flex justify-between items-center">
-        <div className="w-1/2">
+      <main className="flex justify-between items-center h-screen">
+        <div className="w-1/2 h-full">
           <h1 className="text-4xl font-bold mb-5 leading-tight font-victor">
             <span className="block text-white">ENDORPHIN</span>
             <span className="block text-red-500">ENFORCERS</span>
@@ -55,7 +55,7 @@ const EndorphinEndorsers = () => {
           </p>
           <button className="px-6 py-3 bg-red-500 text-white rounded font-bold uppercase transition duration-300 hover:bg-red-700 hover:shadow-xl">Explore AI Features</button>
         </div>
-        <div className="w-1/2 flex justify-center relative">
+        <div className="w-1/2 flex justify-center relative h-full">
           <img src={endoImagee} alt="AI Fitness Illustration" className="w-3/5 h-96 rounded-lg shadow-2xl" />
           <Brain className="w-10 h-10 absolute text-red-500 top-4 left-4" />
           <HeartPulseIcon className="w-10 h-10 absolute text-red-500 top-1/2 right-4" />

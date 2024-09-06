@@ -115,12 +115,11 @@ const SignUpForm = () => {
             </div>
           </div>
 
-          <button
-            type="submit"
+          <a href='/dashboard'
             className="w-full p-3 bg-pink-500 text-white hover:bg-pink-600 transition duration-300 rounded mt-5"
           >
             Sign up
-          </button>
+          </a>
 
           <div className="mt-6 text-white">
             Already have an account?{' '}
