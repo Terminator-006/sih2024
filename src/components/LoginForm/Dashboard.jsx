@@ -16,9 +16,6 @@ import achievement1 from '../Assets/10days.png';
 import achievement2 from '../Assets/20days.png';
 import achievement3 from '../Assets/1month.png';
 
-import './Dashboard.css';
-
-
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -115,7 +112,7 @@ export default function FitnessHomepage() {
         <Navbar className="w-64 bg-gray-800 text-gray-100" 
           onCalendarClick={() => setIsCalendarOpen(true)} 
           onAchievementsClick={() => setIsAchievementsOpen(true)}
-          />
+        />
 
         <main className="flex-1 bg-gray-800 p-4">
           <div className="flex-1">
@@ -172,28 +169,33 @@ export default function FitnessHomepage() {
             {workoutPlan && (
               <div className='flex justify-center'>
                 <div className="w-1/2 bg-gray-700 rounded-lg p-6">
-                <h2 className="text-3xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
-                <ul className="space-y-2">
-                  {workoutPlan.exercises.map((exercise, index) => (
-                    <li key={index} className="flex justify-between text-2xl text-gray-300 p-4 py-8 hover:text-themeRed rounded">
-                      <span>{exercise.name}</span>
-                      <span>{exercise.sets} sets, {exercise.reps} reps</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="my-4 flex justify-center">
-                  {loading ? (
-                    <Spinner size="md" variant="primary" />
-                  ) : (
-                    <button 
-                      onClick={handleStartWorkout}
-                      className="bg-themeRed text-white p-4 rounded-lg text-3xl "
-                    >
-                      Start 
-                    </button>
-                  )}
+                  <h2 className="text-3xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
+                  <ul className="space-y-2">
+                    {workoutPlan.exercises.map((exercise, index) => (
+                      <li key={index} className="flex justify-between text-2xl text-gray-300 p-4 py-8 hover:text-themeRed rounded">
+                        <span>{exercise.name}</span>
+                        <span> {
+                            `${exercise.sets} sets` + ((exercise.reps) ? `, ${exercise.reps} reps`: "") + ((exercise.duration) ? `, ${exercise.duration}`: "")
+                          }
+                          {/* {exercise.sets} sets, {exercise.reps} reps
+                          {exercise.duration && `, ${exercise.duration}`} */}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="my-4 flex justify-center">
+                    {loading ? (
+                      <Spinner size="md" variant="primary" />
+                    ) : (
+                      <button 
+                        onClick={handleStartWorkout}
+                        className="bg-themeRed text-white p-4 rounded-lg text-3xl"
+                      >
+                        Start 
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
               </div>
             )}
           </div>
@@ -208,32 +210,15 @@ export default function FitnessHomepage() {
         />
       </Modal>
       <Modal isOpen={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)}>
-  <div className='m-4'>
-    <h2 className="text-2xl font-semibold text-gray-200 mb-4">Achievements</h2>
-    <div className="m-8 grid grid-cols-3 gap-30">
-      <div className="rounded-image-container text-center">
-        <span className="block text-gray-200 font-semibold mb-2">10 Day Streak</span>
-        <div className="image-wrapper">
-          <img src={achievement1} alt="Achievement 1" className="rounded-image" />
+        <div className='m-4'>
+          <h2 className="text-2xl font-semibold text-gray-200 mb-4">Achievements</h2>
+          <div className="m-4 flex flex-col gap-4">
+            <img src={achievement1} alt="Achievement 1" className="w-40 h-40" />
+            <img src={achievement2} alt="Achievement 2" className="w-40 h-40" />
+            <img src={achievement3} alt="Achievement 3" className="w-40 h-40" />
+          </div>
         </div>
-      </div>
-      <div className="rounded-image-container text-center">
-        <span className="block text-gray-200 font-semibold mb-2">Best Workout Routine</span>
-        <div className="image-wrapper">
-          <img src={achievement2} alt="Achievement 2" className="rounded-image" />
-        </div>
-      </div>
-      <div className="rounded-image-container text-center">
-        <span className="block text-gray-200 font-semibold mb-2">Perfect Attendance</span>
-        <div className="image-wrapper">
-          <img src={achievement3} alt="Achievement 3" className="rounded-image" />
-        </div>
-      </div>
-    </div>
-  </div>
-</Modal>
-
-
+      </Modal>
     </div>
   );
 }
