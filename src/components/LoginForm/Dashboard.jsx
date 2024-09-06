@@ -26,7 +26,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div className="fixed inset-0 z-10 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen">
         <div className="fixed inset-0 bg-black opacity-30" onClick={onClose}></div>
-        <div className="relative bg-gray-900 rounded-lg p-6 max-w-2xl w-full">
+        <div className="relative bg-gray-500 rounded-lg p-6 max-w-2xl w-full">
           <button onClick={onClose} className="absolute top-2 right-2 text-gray-400 hover:text-gray-200">
             <X className="w-6 h-6" />
           </button>
