@@ -39,7 +39,7 @@ const exercisePlan = [
     exercises: [
       { name: "Squats", sets: 1, reps: 20 },
       { name: "Pushups", sets: 1, reps: 20 },
-      { name: "Plank", sets: 1, duration: "30 seconds" },
+      { name: "Plank", sets: 1, duration: "30 secs" },
       { name: "Mountain Climbers", sets: 1, reps: 20 },
       { name: "Lunges", sets: 1, reps: 20 },
     ]
