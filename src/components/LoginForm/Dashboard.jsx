@@ -99,8 +99,8 @@ export default function FitnessHomepage() {
         <div className="flex justify-between items-center">
           <h1 className="text-5xl font-bold">Dashboard</h1>
           <div className="flex items-center space-x-6">
-            <span className="text-gray-300 text-lg">DAY 2, WEEK 6</span>
-            <span className="font-semibold text-lg text-gray-300">Today, 7th June, 2018</span>
+            <span className="text-gray-300 text-lg">DAY 1, WEEK 1</span>
+            <span className="font-semibold text-lg text-gray-300">Today, 6th September, 2024</span>
             <ChevronLeft className="w-8 h-8 text-gray-300" />
             <ChevronRight className="w-8 h-8 text-gray-300" />
             <Bell className="w-6 h-6 text-gray-300" />
@@ -137,7 +137,7 @@ export default function FitnessHomepage() {
                   <div>
                     <p className="text-4xl font-bold text-gray-200">6</p>
                     <p className="text-lg text-gray-200">Meals</p>
-                    <p className="text-sm text-gray-200">1600 kcal</p>
+                    <p className="text-sm text-gray-200">3500 kcal</p>
                   </div>
                   <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center text-themeRed font-bold">
                     <Utensils className="w-10 h-10" />
