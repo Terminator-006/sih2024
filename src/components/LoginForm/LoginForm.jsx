@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { ReactComponent as Endo} from '../Assets/endo.svg';
-import './LoginForm.css';
+import { ReactComponent as Endo } from '../Assets/endo.svg';
 
 const LoginForm = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -11,60 +10,44 @@ const LoginForm = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  
 
-    return (
-      <div className="container">
-         <div className ="first-half">
-         <Endo width="300" height="300" />
-          <div className ="quote">
-            You don't have to be great to start,<br/>But you have to start, to be great.
-          </div>
-         </div>
+  return (
+    <div className="flex h-screen w-screen">
+      <div className="flex flex-col items-center justify-center w-1/2 h-full bg-cover bg-center text-white text-center" style={{ backgroundImage: "url('https://cloud.appwrite.io/console/_app/immutable/assets/login-dark-mode.CXyYQeDN.png')" }}>
+        <Endo width="300" height="300" />
+        <div className="mt-4 text-2xl font-semibold leading-relaxed">
+          You don't have to be great to start,<br />But you have to start, to be great.
+        </div>
+      </div>
 
-         <form action ="">
-            <div className="wrapper">
-            <h2>LOGIN</h2>
-            <div className ="input-box">
-                <input type ="email" placeholder="Email" required/>
-                
-            <div className="password-container">
+      <form className="flex flex-col justify-center items-center w-1/2 h-full bg-black">
+        <div className="flex flex-col items-start w-96">
+          <h2 className="text-white text-2xl font-semibold mb-6">LOGIN</h2>
+          <div className="w-full flex flex-col gap-6 mb-4">
+            <input type="email" placeholder="Email" required className="w-full p-3 bg-transparent border border-white/30 text-white focus:outline-none focus:border-red-500 focus:ring focus:ring-red-500 transition duration-300" />
+            <div className="relative w-full">
               <input
                 type={passwordVisible ? 'text' : 'password'}
                 id="password"
-                className="form-control"
                 placeholder="Enter password"
+                className="w-full p-3 bg-transparent border border-white/30 text-white focus:outline-none focus:border-red-500 focus:ring focus:ring-red-500 transition duration-300"
               />
               <FontAwesomeIcon
                 icon={passwordVisible ? faEyeSlash : faEye}
-                className="password-toggle-icon"
+                className="absolute right-3 top-3 cursor-pointer text-white/70"
                 onClick={togglePasswordVisibility}
-                style={{ cursor: 'pointer', marginLeft: '-32px' }}
               />
             </div>
-
-
-               
-            </div>
-            
-
-            <button type="submit">Sign in</button>
-
-            <div className ="footer">
-            <div className ="remember-forgot">
-                {/* <label><input type ="checkbox"/>Remember me</label> */}
-                <a href ="#">Forgot Password?</a>
-            </div>
-
-            <div classname="register-link">
-                <a href ="#">Sign up</a>
-            </div>
-            </div>
-
-            </div>
-         </form>
-      </div>
-    )
-}
+          </div>
+          <button type="submit" className="w-full p-3 bg-red-500 text-white hover:bg-red-600 transition duration-300">Sign in</button>
+          <div className="flex justify-between items-center w-full mt-4 text-gray-400 text-sm">
+            <a href="#" className="hover:text-white transition duration-300">Forgot Password?</a>
+            <a href="#" className="hover:text-white transition duration-300">Sign up</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default LoginForm;
