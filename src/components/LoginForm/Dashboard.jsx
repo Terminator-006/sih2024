@@ -16,9 +16,6 @@ import achievement1 from '../Assets/10days.png';
 import achievement2 from '../Assets/20days.png';
 import achievement3 from '../Assets/1month.png';
 
-import './Dashboard.css';
-
-
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -42,7 +39,7 @@ const exercisePlan = [
     exercises: [
       { name: "Squats", sets: 1, reps: 20 },
       { name: "Pushups", sets: 1, reps: 20 },
-      { name: "Plank", sets: 1, duration: "30 seconds" },
+      { name: "Plank", sets: 1, duration: "30 secs" },
       { name: "Mountain Climbers", sets: 1, reps: 20 },
       { name: "Lunges", sets: 1, reps: 20 },
     ]
@@ -102,8 +99,8 @@ export default function FitnessHomepage() {
         <div className="flex justify-between items-center">
           <h1 className="text-5xl font-bold">Dashboard</h1>
           <div className="flex items-center space-x-6">
-            <span className="text-gray-300 text-lg">DAY 2, WEEK 6</span>
-            <span className="font-semibold text-lg text-gray-300">Today, 7th June, 2018</span>
+            <span className="text-gray-300 text-lg">DAY 1, WEEK 1</span>
+            <span className="font-semibold text-lg text-gray-300">Today, 6th September, 2024</span>
             <ChevronLeft className="w-8 h-8 text-gray-300" />
             <ChevronRight className="w-8 h-8 text-gray-300" />
             <Bell className="w-6 h-6 text-gray-300" />
@@ -115,7 +112,7 @@ export default function FitnessHomepage() {
         <Navbar className="w-64 bg-gray-800 text-gray-100" 
           onCalendarClick={() => setIsCalendarOpen(true)} 
           onAchievementsClick={() => setIsAchievementsOpen(true)}
-          />
+        />
 
         <main className="flex-1 bg-gray-800 p-4">
           <div className="flex-1">
@@ -140,7 +137,7 @@ export default function FitnessHomepage() {
                   <div>
                     <p className="text-4xl font-bold text-gray-200">6</p>
                     <p className="text-lg text-gray-200">Meals</p>
-                    <p className="text-sm text-gray-200">1600 kcal</p>
+                    <p className="text-sm text-gray-200">3500 kcal</p>
                   </div>
                   <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center text-themeRed font-bold">
                     <Utensils className="w-10 h-10" />
@@ -172,28 +169,33 @@ export default function FitnessHomepage() {
             {workoutPlan && (
               <div className='flex justify-center'>
                 <div className="w-1/2 bg-gray-700 rounded-lg p-6">
-                <h2 className="text-3xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
-                <ul className="space-y-2">
-                  {workoutPlan.exercises.map((exercise, index) => (
-                    <li key={index} className="flex justify-between text-2xl text-gray-300 p-4 py-8 hover:text-themeRed rounded">
-                      <span>{exercise.name}</span>
-                      <span>{exercise.sets} sets, {exercise.reps} reps</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="my-4 flex justify-center">
-                  {loading ? (
-                    <Spinner size="md" variant="primary" />
-                  ) : (
-                    <button 
-                      onClick={handleStartWorkout}
-                      className="bg-themeRed text-white p-4 rounded-lg text-3xl "
-                    >
-                      Start 
-                    </button>
-                  )}
+                  <h2 className="text-3xl font-semibold text-gray-200 mb-4">Today's Workout</h2>
+                  <ul className="space-y-2">
+                    {workoutPlan.exercises.map((exercise, index) => (
+                      <li key={index} className="flex justify-between text-2xl text-gray-300 p-4 py-8 hover:text-themeRed rounded">
+                        <span>{exercise.name}</span>
+                        <span> {
+                            `${exercise.sets} sets` + ((exercise.reps) ? `, ${exercise.reps} reps`: "") + ((exercise.duration) ? `, ${exercise.duration}`: "")
+                          }
+                          {/* {exercise.sets} sets, {exercise.reps} reps
+                          {exercise.duration && `, ${exercise.duration}`} */}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="my-4 flex justify-center">
+                    {loading ? (
+                      <Spinner size="md" variant="primary" />
+                    ) : (
+                      <button 
+                        onClick={handleStartWorkout}
+                        className="bg-themeRed text-white p-4 rounded-lg text-3xl"
+                      >
+                        Start 
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
               </div>
             )}
           </div>
@@ -208,32 +210,15 @@ export default function FitnessHomepage() {
         />
       </Modal>
       <Modal isOpen={isAchievementsOpen} onClose={() => setIsAchievementsOpen(false)}>
-  <div className='m-4'>
-    <h2 className="text-2xl font-semibold text-gray-200 mb-4">Achievements</h2>
-    <div className="m-8 grid grid-cols-3 gap-30">
-      <div className="rounded-image-container text-center">
-        <span className="block text-gray-200 font-semibold mb-2">10 Day Streak</span>
-        <div className="image-wrapper">
-          <img src={achievement1} alt="Achievement 1" className="rounded-image" />
+        <div className='m-4'>
+          <h2 className="text-2xl font-semibold text-gray-200 mb-4">Achievements</h2>
+          <div className="m-4 flex flex-col gap-4">
+            <img src={achievement1} alt="Achievement 1" className="w-40 h-40" />
+            <img src={achievement2} alt="Achievement 2" className="w-40 h-40" />
+            <img src={achievement3} alt="Achievement 3" className="w-40 h-40" />
+          </div>
         </div>
-      </div>
-      <div className="rounded-image-container text-center">
-        <span className="block text-gray-200 font-semibold mb-2">Best Workout Routine</span>
-        <div className="image-wrapper">
-          <img src={achievement2} alt="Achievement 2" className="rounded-image" />
-        </div>
-      </div>
-      <div className="rounded-image-container text-center">
-        <span className="block text-gray-200 font-semibold mb-2">Perfect Attendance</span>
-        <div className="image-wrapper">
-          <img src={achievement3} alt="Achievement 3" className="rounded-image" />
-        </div>
-      </div>
-    </div>
-  </div>
-</Modal>
-
-
+      </Modal>
     </div>
   );
 }

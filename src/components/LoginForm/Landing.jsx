@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Brain, HeartPulseIcon, DumbbellIcon } from 'lucide-react';
 import endoImage from '../Assets/endrophin.jpg';
@@ -23,9 +22,9 @@ const EndorphinEndorsers = () => {
   }, []); 
 
   return (
-    <div className="w-screen h-screen p-6 bg-gradient-to-r from-black via-gray-900 to-black">
+    <div className="w-screen min-h-screen flex flex-col p-6 bg-gradient-to-r from-black via-gray-900 to-black">
       <header className="flex justify-between items-center mb-12 border-b border-red-500">
-        <div className="h-16 w-16 font-bold text-red-500">
+        <div className="h-16 w-16 font-bold text-red-500 mb-4">
           <img src={endoImage} alt="Endorphin Logo" className="w-full h-full object-cover" /> {/* Image used */}
         </div>
         <nav>
@@ -42,12 +41,13 @@ const EndorphinEndorsers = () => {
           <a href='/login' className="px-4 py-2 text-white uppercase font-bold rounded transition duration-300 hover:bg-red-500 hover:shadow-lg">Sign in</a>
         </div>
       </header>
-      <main className="flex justify-between items-center h-screen">
-        <div className="w-1/2 h-full">
-          <h1 className="text-4xl font-bold mb-5 leading-tight font-victor">
-            <span className="block text-white">ENDORPHIN</span>
-            <span className="block text-red-500">ENFORCERS</span>
-          </h1>
+      <main className="flex flex-1 justify-between items-center">
+        <div className="w-1/2">
+        <h1 className="text-4xl font-bold mb-5 leading-tight font-victor">
+  <span className="text-white">ENDORPHIN </span>
+  <span className="text-red-500">ENFORCERS</span>
+</h1>
+
           <p className="text-white mb-8 text-lg leading-relaxed">
             Experience the future of fitness with our AI-driven platform.
             Personalized workouts, real-time analysis, and predictive health insights 
@@ -55,7 +55,7 @@ const EndorphinEndorsers = () => {
           </p>
           <button className="px-6 py-3 bg-red-500 text-white rounded font-bold uppercase transition duration-300 hover:bg-red-700 hover:shadow-xl">Explore AI Features</button>
         </div>
-        <div className="w-1/2 flex justify-center relative h-full">
+        <div className="w-1/2 flex justify-center relative">
           <img src={endoImagee} alt="AI Fitness Illustration" className="w-3/5 h-96 rounded-lg shadow-2xl" />
           <Brain className="w-10 h-10 absolute text-red-500 top-4 left-4" />
           <HeartPulseIcon className="w-10 h-10 absolute text-red-500 top-1/2 right-4" />
