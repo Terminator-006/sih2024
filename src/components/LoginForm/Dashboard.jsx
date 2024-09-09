@@ -89,7 +89,7 @@ export default function FitnessHomepage() {
     setLoading(true); 
     setTimeout(() => {
       setLoading(false); 
-      window.open('https://www.google.com', '_blank'); 
+      window.open('http://192.168.1.6:8501', '_blank'); 
     }, 3000);
   };
 
