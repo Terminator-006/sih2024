@@ -89,7 +89,7 @@ export default function FitnessHomepage() {
     setLoading(true); 
     setTimeout(() => {
       setLoading(false); 
-      window.open('https://www.google.com', '_blank'); 
+      window.open('https://aiendoenforcer.streamlit.app/', '_blank'); 
     }, 3000);
   };
 
